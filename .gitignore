@@ -169,3 +169,30 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+# Python-related files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Logs and cache
+logs/
+*.log
+*.sqlite3
+
+# Dataset files (downloaded from Kaggle)
+data/raw_images/
+data/processed_images/
+
+# Virtual environments
+venv/
+env/
+
+# Node.js dependencies
+node_modules/
+
+# IDE/Editor files
+.vscode/
+.idea/
+.DS_Store
