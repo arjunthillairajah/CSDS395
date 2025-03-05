@@ -23,7 +23,7 @@ function App() {
     formData.append('file', image);
 
     try {
-      const response = await fetch('http://xxxx.ngrok.io/', {  // TODO: replace with ngrok from prediction
+      const response = await fetch('https://noble-mature-tapir.ngrok-free.app/predict', { 
         method: 'POST',
         body: formData,
       });
