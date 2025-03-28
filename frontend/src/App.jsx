@@ -4,6 +4,8 @@ import './App.css';
 function App() {
   const [image, setImage] = useState(null);
   const [preview, setPreview] = useState(null);
+  const [loading, setLoading] = useState(false);
+
 
   const handleImageChange = (event) => {
     const file = event.target.files[0];
@@ -19,6 +21,7 @@ function App() {
       return;
     }
 
+    setLoading(true);
     const formData = new FormData();
     formData.append('file', image);
 
@@ -33,6 +36,8 @@ function App() {
     } catch (error) {
       console.error("Error uploading image:", error);
       alert("Failed to get a prediction.");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -42,7 +47,15 @@ function App() {
       <input type="file" accept="image/*" onChange={handleImageChange} className="file-input" />
       {preview && <img src={preview} className="preview-img" />}
       <br />
-      <button onClick={handleSubmit} className="analyze-btn">Analyze Image</button>
+      <button onClick={handleSubmit} className="analyze-btn" disabled={loading}>
+        {loading ? (
+          <span className="spinner">
+            <span className="spinner-circle" /> Loading...
+          </span>
+        ) : (
+          'Analyze Image'
+        )}
+      </button>
     </div>
   );
 }
