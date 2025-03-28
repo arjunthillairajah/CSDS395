@@ -5,6 +5,7 @@ function App() {
   const [image, setImage] = useState(null);
   const [preview, setPreview] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [result, setResult] = useState(null);
 
 
   const handleImageChange = (event) => {
@@ -12,12 +13,14 @@ function App() {
     if (file) {
       setImage(file);
       setPreview(URL.createObjectURL(file));
+      setResult(null);
     }
   };
 
   const handleSubmit = async () => {
     if (!image) {
       alert('No image uploaded.');
+      setResult(null);
       return;
     }
 
@@ -32,13 +35,18 @@ function App() {
       });
 
       const result = await response.json();
-      alert(`Prediction: ${result.label}`);
+      setResult(`Prediction: ${result.label}`);
     } catch (error) {
       console.error("Error uploading image:", error);
       alert("Failed to get a prediction.");
     } finally {
       setLoading(false);
     }
+  };
+  const handleReset = () => {
+    setImage(null);
+    setPreview(null);
+    setResult(null);
   };
 
   return (
@@ -47,15 +55,25 @@ function App() {
       <input type="file" accept="image/*" onChange={handleImageChange} className="file-input" />
       {preview && <img src={preview} className="preview-img" />}
       <br />
-      <button onClick={handleSubmit} className="analyze-btn" disabled={loading}>
-        {loading ? (
-          <span className="spinner">
-            <span className="spinner-circle" /> Loading...
-          </span>
-        ) : (
-          'Analyze Image'
-        )}
-      </button>
+
+      {!result && (
+        <button onClick={handleSubmit} className="analyze-btn" disabled={loading}>
+          {loading ? (
+            <span className="spinner">
+              <span className="spinner-circle" /> Loading...
+            </span>
+          ) : (
+            'Analyze Image'
+          )}
+        </button>
+      )}
+
+      {result && (
+        <>
+          <div className="result-message">{result}</div>
+          <button onClick={handleReset} className="reset-btn">Analyze Another Image</button>
+        </>
+      )}
     </div>
   );
 }
