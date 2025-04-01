@@ -1,5 +1,8 @@
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client';
+import './app.css'
 import { useState } from 'react';
-import './App.css';
+
 
 function App() {
   const [image, setImage] = useState(null);
@@ -79,3 +82,10 @@ function App() {
 }
 
 export default App;
+
+
+createRoot(document.getElementById('root')).render(
+  <StrictMode>
+    <App />
+  </StrictMode>,
+)
