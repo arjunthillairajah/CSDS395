@@ -21,6 +21,17 @@ const ChatBox = () => {
   result: 'Once uploaded, the system will analyze the image and return a result with confidence scores.',
   privacy: 'Your data is encrypted and anonymized. We do not store identifying information.',
   care: 'We provide general skin care advice, but always consult a medical professional if needed.'
+  symptoms: 'If you notice itching, redness, or unusual skin texture, it\'s best to consult a dermatologist.',
+  dangerous: 'Some skin conditions may be dangerous. If a mole changes in shape, size, or color, see a doctor.',
+  treatment: 'Treatment depends on the condition. Our system gives general insight, but please consult a medical professional.',
+  accuracy: 'Our model gives a preliminary analysis. Always follow up with a licensed dermatologist.',
+  cost: 'This service is currently free to use for initial diagnosis.',
+  cancer: 'If you are concerned about skin cancer, please contact a licensed medical professional immediately.',
+  location: 'We don’t use your location. Your images are private and secure.',
+  time: 'Results usually appear within a few seconds after upload.',
+  insurance: 'No insurance is needed — this AI tool is accessible to everyone.',
+  languages: 'We currently support English. More languages will be supported soon!',
+};
   };
 
   
