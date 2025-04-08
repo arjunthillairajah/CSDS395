@@ -3,6 +3,9 @@ import { createRoot } from 'react-dom/client';
 import './app.css'
 import { useState } from 'react';
 
+import ChatBox from './ChatBox';
+
+
 
 function App() {
   const [image, setImage] = useState(null);
@@ -78,6 +81,8 @@ function App() {
         </>
       )}
     </div>
+    <ChatBox />
+    </>
   );
 }
 
