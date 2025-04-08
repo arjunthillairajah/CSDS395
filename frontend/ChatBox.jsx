@@ -15,12 +15,12 @@ const ChatBox = () => {
 
   
   const responses = {
-    hi: 'Hello there! 😊 How can I assist you today?',
+  hi: 'Hello there! 😊 How can I assist you today?',
   hello: 'Hey! Let me know if you have any questions.',
   upload: 'To upload an image, click the upload button on the homepage and select a clear photo of your skin condition.',
   result: 'Once uploaded, the system will analyze the image and return a result with confidence scores.',
   privacy: 'Your data is encrypted and anonymized. We do not store identifying information.',
-  care: 'We provide general skin care advice, but always consult a medical professional if needed.'
+  care: 'We provide general skin care advice, but always consult a medical professional if needed.',
   symptoms: 'If you notice itching, redness, or unusual skin texture, it\'s best to consult a dermatologist.',
   dangerous: 'Some skin conditions may be dangerous. If a mole changes in shape, size, or color, see a doctor.',
   treatment: 'Treatment depends on the condition. Our system gives general insight, but please consult a medical professional.',
@@ -31,7 +31,7 @@ const ChatBox = () => {
   time: 'Results usually appear within a few seconds after upload.',
   insurance: 'No insurance is needed — this AI tool is accessible to everyone.',
   languages: 'We currently support English. More languages will be supported soon!',
-  };
+};
 
   
   const getResponse = (userInput) => {
