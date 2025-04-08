@@ -242,3 +242,13 @@ p {
 .chatbox-form button:hover {
   background-color: #0454aa;
 }
+/* --- Centered ChatBox for help.html --- */
+.chatbox-embedded-wrapper {
+  margin: 30px auto;
+  max-width: 500px;
+  padding: 20px;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  background-color: #f9f9ff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
