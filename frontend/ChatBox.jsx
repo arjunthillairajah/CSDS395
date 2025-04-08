@@ -49,7 +49,7 @@ const ChatBox = () => {
 
   return (
     
-    <div className="chatbox-fixed-wrapper">
+    <div className="chatbox-embedded-wrapper">
       {/* Button to open/close the chat */}
       <button className="chatbox-toggle-btn" onClick={() => setIsOpen(!isOpen)}>
         {isOpen ? '✖' : '💬 Need Help?'}
