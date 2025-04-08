@@ -31,7 +31,6 @@ const ChatBox = () => {
   time: 'Results usually appear within a few seconds after upload.',
   insurance: 'No insurance is needed — this AI tool is accessible to everyone.',
   languages: 'We currently support English. More languages will be supported soon!',
-};
   };
 
   
