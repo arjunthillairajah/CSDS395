@@ -15,10 +15,12 @@ const ChatBox = () => {
 
   
   const responses = {
-    upload: 'To upload an image, click the upload button on the homepage and select a clear photo of your skin condition.',
-    result: 'Once uploaded, the system will analyze the image and return a result with confidence scores.',
-    privacy: 'Your data is encrypted and anonymized. We do not store identifying information.',
-    care: 'We provide general skin care advice, but always consult a medical professional if needed.'
+    hi: 'Hello there! 😊 How can I assist you today?',
+  hello: 'Hey! Let me know if you have any questions.',
+  upload: 'To upload an image, click the upload button on the homepage and select a clear photo of your skin condition.',
+  result: 'Once uploaded, the system will analyze the image and return a result with confidence scores.',
+  privacy: 'Your data is encrypted and anonymized. We do not store identifying information.',
+  care: 'We provide general skin care advice, but always consult a medical professional if needed.'
   };
 
   
