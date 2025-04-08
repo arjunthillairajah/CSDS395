@@ -3,7 +3,7 @@ import { createRoot } from 'react-dom/client';
 import './app.css'
 import { useState } from 'react';
 
-import ChatBox from './ChatBox';
+import ChatBox from '../ChatBox';
 
 
 
