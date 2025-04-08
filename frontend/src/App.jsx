@@ -3,9 +3,6 @@ import { createRoot } from 'react-dom/client';
 import './app.css'
 import { useState } from 'react';
 
-import ChatBox from '../ChatBox';
-
-
 
 function App() {
   const [image, setImage] = useState(null);
@@ -79,12 +76,9 @@ function App() {
         <>
           <div className="result-message">{result}</div>
           <button onClick={handleReset} className="reset-btn">Analyze Another Image</button>
-        </>
-      )}
-    </div>
-   <ChatBox />
-
-    {/* (FIX HERE) Add the closing fragment tag */}
+       </>
+        )}
+      </div>
     </>
   );
 }
