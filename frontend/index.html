@@ -1,27 +1,55 @@
 <!doctype html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css">
     <title>Dermatology AI</title>
-  </head>
-  <body>
-    <div class>
-        <h1>Dermatology AI</h1>
-    </div>
-        
-        <nav class="nav">
-            <a href="index.html">Home</a>
-            <a href="image.html">Upload Image</a>
-            <a href="resources.html">Disease Encyclopedia</a>
-            <a href="about.html">About us</a>
-            <a href="help.html">Help</a>
-        </nav>
+</head>
+
+<body>
+
+
+    <nav class="nav">
+        <a class="active" href="index.html">Home</a>
+        <a href="image.html">Upload Image</a>
+        <a href="resources.html">Disease Encyclopedia</a>
+        <a href="about.html">About us</a>
+        <a href="help.html">Help</a>
+    </nav>
     <main>
-        <h2 class="top">
-            <image src="acne-home.jpg" alt="Woman with acne">Worried about your skin? We can help!</image>
+        <section>
+            <img class="homePhotos" src="photo1.jpg" style="width:100%">
+            <img class="homePhotos" src="photo2.jpg" style="width:100%">
+            <img class="homePhotos" src="photo3.jpg" style="width:100%">
+            <img class="homePhotos" src="photo4.jpg" style="width:100%">
+            <img class="homePhotos" src="photo5.jpg" style="width:100%">
+            <img class="homePhotos" src="photo6.jpg" style="width:100%">
+            <img class="homePhotos" src="acne-home.jpg" style="width:100%">
+        </section>
+        <script>
+            // Automatic Slideshow - change image every 6 seconds
+            var myIndex = 0;
+            carousel();
+
+            function carousel() {
+                var i;
+                var x = document.getElementsByClassName("homePhotos");
+                for (i = 0; i < x.length; i++) {
+                    x[i].style.display = "none";
+                }
+                myIndex++;
+                if (myIndex > x.length) { myIndex = 1 }
+                x[myIndex - 1].style.display = "block";
+                setTimeout(carousel, 6000);
+            }
+        </script>
+
+        <h2 class="center">
+            Worried about your Skin? Have a weird mole or rash?
+            <p><i>We can help!</i></p>
         </h2>
         <div>
             <h2>Why use Dermatology AI?</h2>
@@ -33,10 +61,11 @@
             <h2> Over <strong>5.4 million</strong> Americans get diagnosed with Skin cancer every year. </h2>
             <p>With cancer, time is of the essence. Get reliable results quickly with dermatology AI</p>
         </div>
-        
+
     </main>
     <footer>
-        <p >Copyright 2025</p>
+        <p>Copyright 2025</p>
     </footer>
-  </body>
+</body>
+
 </html>
