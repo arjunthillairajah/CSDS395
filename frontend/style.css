@@ -1,16 +1,20 @@
+* {box-sizing: border-box;}
 .nav {
   background-color: navy;
   overflow: hidden;
+  width: 100%;
 }
 
 .nav a {
   float: left;
   color: lightblue;
   text-align: center;
-  padding: 20px;
+  padding: 15px;
   text-decoration: none;
   font-size: 25px;
   font: verdana;
+  width: 20%;
+  
 }
 
 .nav a:hover {
@@ -20,15 +24,18 @@
 }
 
 .nav a.active {
-  background-color: orange;
+  background-color: #f79256;
   color: white;
 }
 
 body,
-title {
-
-  border: 2px solid #316ede7b;
+title, html{
+height:100%;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   background-color: #c6e9ff;
+  margin: 0px;
+  width: 100%;
+
 }
 
 
@@ -38,7 +45,6 @@ h1 {
   margin-left: 0px;
   font: verdana;
   font-size: 300%;
-  background-color: whitesmoke;
   overflow: hidden;
   ;
 
@@ -46,6 +52,26 @@ h1 {
 }
 .top{
   vertical-align: middle;
+}
+.center{
+justify-content: center;
+  padding: 50px 0;
+  text-align: center;
+  min-width: 100%;
+  
+  }
+
+.homePhotos{
+  vertical-align: middle;
+  display: none;
+  max-height: 800px;
+  object-fit: cover;
+  position: relative;
+  margin: auto;
+  border-color: navy;
+  border-style: solid;
+  border-width: 2.5px;
+
 }
 
 h2 {
@@ -55,7 +81,11 @@ h2 {
   padding-left: 10px;
   display: inline-block;
 }
-
+.paragraph{
+  text-decoration: none;
+  color:black;
+  pointer-events: none;
+}
 p {
   margin-left: 60px;
   font: verdana;
