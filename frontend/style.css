@@ -1,4 +1,7 @@
-* {box-sizing: border-box;}
+* {
+  box-sizing: border-box;
+}
+
 .nav {
   background-color: navy;
   overflow: hidden;
@@ -14,7 +17,7 @@
   font-size: 25px;
   font: verdana;
   width: 20%;
-  
+
 }
 
 .nav a:hover {
@@ -29,8 +32,9 @@
 }
 
 body,
-title, html{
-height:100%;
+title,
+html {
+  height: 100%;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   background-color: #c6e9ff;
   margin: 0px;
@@ -50,18 +54,20 @@ h1 {
 
 
 }
-.top{
+
+.top {
   vertical-align: middle;
 }
-.center{
-justify-content: center;
+
+.center {
+  justify-content: center;
   padding: 50px 0;
   text-align: center;
   min-width: 100%;
-  
-  }
 
-.homePhotos{
+}
+
+.homePhotos {
   vertical-align: middle;
   display: none;
   max-height: 800px;
@@ -77,20 +83,40 @@ justify-content: center;
 h2 {
   text-align: right;
   font: verdana;
-  font-size:  250%;
+  font-size: 250%;
   padding-left: 10px;
   display: inline-block;
 }
-.paragraph{
+.column {
+  float: left;
+}
+
+/* Left and right column */
+.column.side {
+  width: 25%;
+}
+
+/* Middle column */
+.column.middle {
+  width: 50%;
+}
+
+.paragraph {
   text-decoration: none;
-  color:black;
+  color: black;
   pointer-events: none;
 }
+
 p {
   margin-left: 60px;
   font: verdana;
   font-size: 100%;
   padding: 10px;
+}
+
+footer {
+  color: whitesmoke;
+  text-align: center;
 }
 
 .container {
@@ -191,7 +217,7 @@ p {
   cursor: pointer;
   margin-bottom: 10px;
   font-size: 14px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
 .chatbox-toggle-btn:hover {
@@ -272,6 +298,7 @@ p {
 .chatbox-form button:hover {
   background-color: #0454aa;
 }
+
 /* --- Centered ChatBox for help.html --- */
 .chatbox-embedded-wrapper {
   margin: 30px auto;

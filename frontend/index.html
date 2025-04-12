@@ -31,19 +31,19 @@
         </section>
         <script>
             // Automatic Slideshow - change image every 6 seconds
-            var myIndex = 0;
-            carousel();
+            var n = 0;
+            imageCarousel();
 
-            function carousel() {
+            function imageCarousel() {
                 var i;
                 var x = document.getElementsByClassName("homePhotos");
                 for (i = 0; i < x.length; i++) {
                     x[i].style.display = "none";
                 }
-                myIndex++;
-                if (myIndex > x.length) { myIndex = 1 }
-                x[myIndex - 1].style.display = "block";
-                setTimeout(carousel, 6000);
+                n++;
+                if (n > x.length) { n = 1 }
+                x[n - 1].style.display = "block";
+                setTimeout(imageCarousel, 6000);
             }
         </script>
 
@@ -51,19 +51,17 @@
             Worried about your Skin? Have a weird mole or rash?
             <p><i>We can help!</i></p>
         </h2>
-        <div>
-            <h2>Why use Dermatology AI?</h2>
+        <div class="column">
+            <h2 class="middle">Why use Dermatology AI?</h2>
             <p>Dermatology AI allows people all over the world to get quality access to health care</p>
-            <h2>No more Wondering what that weird mole is.</h2>
+            <h2 class="side">No more Wondering what that weird mole is.</h2>
             <p>Instead use Dermatology AI</p>
-        </div>
-        <div>
-            <h2> Over <strong>5.4 million</strong> Americans get diagnosed with Skin cancer every year. </h2>
+            <h2 class="side"> Over <strong>5.4 million</strong> Americans get diagnosed with Skin cancer every year. </h2>
             <p>With cancer, time is of the essence. Get reliable results quickly with dermatology AI</p>
         </div>
 
     </main>
-    <footer>
+    <footer class="nav">
         <p>Copyright 2025</p>
     </footer>
 </body>
