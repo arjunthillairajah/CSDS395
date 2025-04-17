@@ -2,31 +2,38 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css">
-    <title>Dermatology AI</title>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/style.css">
+  <title>Dermatology AI</title>
 </head>
 
 <body>
+ 
+  <nav class="nav">
+    <a href="index.html">Home</a>
+    <a href="image.html">Upload Image</a>
+    <a href="resources.html">Disease Encyclopedia</a>
+    <a href="about.html">About us</a>
+    <a class="active" href="help.html">Help</a>
+  </nav>
+
+  <div id="root"></div>
+  <h2>Dermatology AI Q&A</h2>
+  <button>Simple Questions</button>
+  <button>Chat with us</button>
 
 
-    <nav class="nav">
-        <a href="index.html">Home</a>
-        <a href="image.html">Upload Image</a>
-        <a href="resources.html">Disease Encyclopedia</a>
-        <a href="about.html">About us</a>
-        <a class="active" href="help.html">Help</a>
-    </nav>
-    <div id="root"></div>
-    <h2>Dermatology AI Q&A</h2>
-    <button>Simple Questions</button>
-    <button>Chat with us</button>
-    <script src="ChatBox.jsx"></script>
-    <footer class="nav">
-        <p>Copyright 2025</p>
-    </footer>
+  <div id="chatbox-root"></div>
+
+
+  <script type="module" src="/src/help-entry.jsx"></script>
+
+
+  <footer class="nav">
+    <p>Copyright 2025</p>
+  </footer>
 </body>
 
 </html>
