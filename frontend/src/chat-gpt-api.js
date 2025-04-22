@@ -1,6 +1,6 @@
 // frontend/src/chat-gpt-api.js
 export async function callGPT(messages) {
-  const response = await fetch("https://api.openai.com/v1/chat/completions", {
+  const response = await fetch("http://localhost:3001/api/gpt", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
