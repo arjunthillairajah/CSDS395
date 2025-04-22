@@ -3,10 +3,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import openaiProxy from './openaiProxy.js';
 
-
-dotenv.config();
-
-
+dotenv.config({ path: './.env' });  
 console.log("🔑 API KEY:", process.env.OPENAI_API_KEY);
 
 const app = express();
