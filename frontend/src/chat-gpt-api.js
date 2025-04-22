@@ -4,14 +4,28 @@ export async function callGPT(messages) {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      Authorization: "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"  
+      Authorization: `Bearer ${import.meta.env.VITE_OPENAI_API_KEY}`
     },
     body: JSON.stringify({
       model: "gpt-4o",
       messages: [
-        { role: "system", content: "You are a helpful AI assistant for dermatology." },
+        {
+          role: "system",
+          content: `
+You are an interactive website assistant for a dermatology diagnostic platform.
+Your job is to guide users through the following pages and their functionalities:
+
+- "Upload Image": where users can upload skin condition images for AI diagnosis
+- "Disease Encyclopedia": where users can read about different skin conditions
+- "Help": where they can chat with you
+- "About us": company background
+
+Answer user questions clearly and concisely, and always suggest where they should click to get what they want.
+          `.trim()
+        },
         ...messages
-      ]
+      ],
+      temperature: 0.7
     })
   });
 
