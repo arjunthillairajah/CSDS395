@@ -2,9 +2,9 @@
 import express from "express";
 import cors    from "cors";
 import dotenv  from "dotenv";
-import OpenAI  from "openai";        // default export
+import OpenAI  from "openai";       // ← default import
 
-// 1) load .env from this folder
+// 1) load .env
 dotenv.config({ path: "./.env" });
 
 // 2) debug
@@ -14,23 +14,19 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// 3) init OpenAI client
+// 3) instantiate client
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY
 });
 
 app.post("/api/gpt", async (req, res) => {
   try {
-    const { messages, model = "gpt-4o", temperature = 0.7 } = req.body;
-
-    // 4) call chat completion
+    const { messages, model="gpt-4o", temperature=0.7 } = req.body;
     const completion = await openai.chat.completions.create({
       model,
       messages,
       temperature
     });
-
-    // 5) send back the full response
     res.json(completion);
   } catch (err) {
     console.error("❌ OpenAI error:", err);
