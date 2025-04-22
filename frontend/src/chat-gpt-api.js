@@ -1,13 +1,10 @@
-// frontend/src/chat-gpt-api.js
 export async function callGPT(messages) {
   const response = await fetch("http://localhost:3001/api/gpt", {
     method: "POST",
     headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${import.meta.env.VITE_OPENAI_API_KEY}`
+      "Content-Type": "application/json"
     },
     body: JSON.stringify({
-      model: "gpt-4o",
       messages: [
         {
           role: "system",
@@ -25,7 +22,8 @@ Answer user questions clearly and concisely, and always suggest where they shoul
         },
         ...messages
       ],
-      temperature: 0.7
+      temperature: 0.7,
+      model: "gpt-4o"
     })
   });
 
@@ -37,3 +35,4 @@ Answer user questions clearly and concisely, and always suggest where they shoul
     return "Sorry, I couldn't get a response from the AI.";
   }
 }
+
