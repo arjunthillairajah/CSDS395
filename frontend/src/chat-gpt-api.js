@@ -1,14 +1,41 @@
+// frontend/src/chat‑gpt‑api.js
+
+// ─── Replace your Hugging Face token here (hard‑coded) ─────────────────────────
+const HF_TOKEN   = "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";
+const HF_API_URL = "https://api-inference.huggingface.co/models/HuggingFaceH4/zephyr-7b-beta";
+
+/**
+ * Turn your message array into an OpenChatML prompt.
+ * @param {{ role: string, text: string }[]} messages
+ * @returns {string}
+ */
+function buildPrompt(messages) {
+  let prompt = "";
+  for (const m of messages) {
+    if (m.role === "system") {
+      prompt += `<|system|>\n${m.text}\n`;
+    } else if (m.role === "user") {
+      prompt += `<|user|>\n${m.text}\n`;
+    } else { // assistant
+      prompt += `<|assistant|>\n${m.text}\n`;
+    }
+  }
+  // finally, signal the model to generate the assistant’s reply
+  prompt += `<|assistant|>\n`;
+  return prompt;
+}
+
+/**
+ * Send your chat history to HF and return the assistant's next reply.
+ * @param {{ role: string, text: string }[]} messages
+ * @returns {Promise<string>}
+ */
 export async function callGPT(messages) {
-  const response = await fetch("http://localhost:3001/api/gpt", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({
-      messages: [
-        {
-          role: "system",
-          content: `
+  // 1) prepend a system message and build the prompt
+  const prompt = buildPrompt([
+    {
+      role: "system",
+      text: `
 You are an interactive website assistant for a dermatology diagnostic platform.
 Your job is to guide users through the following pages and their functionalities:
 
@@ -18,21 +45,32 @@ Your job is to guide users through the following pages and their functionalities
 - "About us": company background
 
 Answer user questions clearly and concisely, and always suggest where they should click to get what they want.
-          `.trim()
-        },
-        ...messages
-      ],
-      temperature: 0.7,
-      model: "gpt-4o"
+      `.trim()
+    },
+    ...messages
+  ]);
+
+  // 2) call the Hugging Face inference endpoint
+  const res = await fetch(HF_API_URL, {
+    method: "POST",
+    headers: {
+      "Authorization": `Bearer ${HF_TOKEN}`,
+      "Content-Type":  "application/json"
+    },
+    body: JSON.stringify({
+      inputs: prompt,
+      parameters: { temperature: 0.7 }
     })
   });
 
-  const data = await response.json();
-
-  if (data.choices && data.choices.length > 0) {
-    return data.choices[0].message.content;
-  } else {
-    return "Sorry, I couldn't get a response from the AI.";
+  // 3) parse and extract the assistant's reply
+  const data = await res.json();
+  if (!Array.isArray(data) || !data[0]?.generated_text) {
+    console.error("HF inference error:", data);
+    return "Sorry, I couldn't get a response from the model.";
   }
+  const full = data[0].generated_text;
+  // split off everything before the latest <|assistant|> marker
+  return full.split("<|assistant|>").pop().trim();
 }
 
