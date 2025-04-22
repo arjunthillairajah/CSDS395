@@ -1,6 +1,6 @@
-// frontend/src/chat‑gpt‑api.js
+// frontend/src/chat-gpt-api.js
 
-// ─── Replace your Hugging Face token here (hard‑coded) ─────────────────────────
+//  ─────────────────────────
 const HF_TOKEN   = "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";
 const HF_API_URL = "https://api-inference.huggingface.co/models/HuggingFaceH4/zephyr-7b-beta";
 
@@ -31,7 +31,7 @@ function buildPrompt(messages) {
  * @returns {Promise<string>}
  */
 export async function callGPT(messages) {
-  // 1) prepend a system message and build the prompt
+  // 1) prepend your system instructions
   const prompt = buildPrompt([
     {
       role: "system",
@@ -73,4 +73,5 @@ Answer user questions clearly and concisely, and always suggest where they shoul
   // split off everything before the latest <|assistant|> marker
   return full.split("<|assistant|>").pop().trim();
 }
+
 
