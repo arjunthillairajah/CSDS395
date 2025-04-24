@@ -89,18 +89,18 @@ h2 {
 }
 .column {
   float: left;
+  background-color: white;
+  columns: 80px 3;
+  text-align: center;
 }
 
-/* Left and right column */
-.column.side {
-  width: 25%;
+h4 {
+  text-align: center;
+  font: verdana;
+  font-size: 250%;
+  padding-left: 10px;
+  display: inline-block;
 }
-
-/* Middle column */
-.column.middle {
-  width: 50%;
-}
-
 .paragraph {
   text-decoration: none;
   color: black;
